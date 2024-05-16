@@ -117,6 +117,11 @@
                                                 <span class="badge badge-success">Done</span>
                                             </td>
                                             @break
+                                        @case("Canceled")
+                                            <td>
+                                                <span class="badge badge-warning">Canceled</span>
+                                            </td>
+                                            @break
                                         @default
                                             
                                     @endswitch

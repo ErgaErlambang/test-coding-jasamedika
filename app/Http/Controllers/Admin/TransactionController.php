@@ -25,7 +25,14 @@ class TransactionController extends Controller
             $datatables = Datatables::of($data)
                 ->addIndexColumn()
                 ->editColumn('status', function ($row) {
-                    $badge = $row->status == 'Booked' ? 'warning' : 'success';
+                    if($row->status == "Booked") {
+                        $badge = 'warning';
+                    }else if($row->status == "Canceled") {
+                        $badge = 'danger';
+                    }else {
+                        $badge = 'success';
+                    }
+                    
                     $span = "<span class='badge badge-pill badge-".$badge."'>".$row->status."</span>";
                     return $span;
                 })
@@ -69,7 +76,7 @@ class TransactionController extends Controller
         }else {
             if($transaction->status == "Returned") {
                 $transaction->returned_date = date('Y-m-d');
-            }else if($transaction->status == "Done") {
+            }else if($transaction->status == "Done" || $transaction->status == "Canceled") {
                 $transaction->is_available = true;
                 $transaction->available_until = null;
             }
