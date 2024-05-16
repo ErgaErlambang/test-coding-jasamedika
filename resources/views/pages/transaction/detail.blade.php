@@ -171,6 +171,7 @@
                                     <option value="Active">Active</option>
                                     <option value="Returned">Returned</option>
                                     <option value="Done">Done</option>
+                                    <option value="Canceled">Canceled</option>
                                 </optgroup>
                             </select>
                         </div>

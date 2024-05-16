@@ -77,8 +77,9 @@ class TransactionController extends Controller
             if($transaction->status == "Returned") {
                 $transaction->returned_date = date('Y-m-d');
             }else if($transaction->status == "Done" || $transaction->status == "Canceled") {
-                $transaction->is_available = true;
-                $transaction->available_until = null;
+                $transaction->vehicle->is_available = true;
+                $transaction->vehicle->available_until = null;
+                $transaction->vehicle->update();
             }
         }
         $transaction->save();
