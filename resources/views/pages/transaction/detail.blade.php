@@ -56,7 +56,7 @@
                                     $end_date = new DateTime($transaction->end_date);
                                     $return_date = new DateTime($transaction->returned_date);
 
-                                    $overtime = $end_date->diff($return_date)->format("%r%a");
+                                    $overtime = !empty($transaction->returned_date) ? $end_date->diff($return_date)->format("%r%a") : 0;
                                     $final_date = $start_date->diff($end_date)->days + 1;
                                     $fines = $transaction->base_price * ($overtime <= 0 ? 0 : $overtime);
                                 @endphp
