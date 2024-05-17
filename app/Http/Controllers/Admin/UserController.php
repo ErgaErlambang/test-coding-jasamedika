@@ -25,7 +25,7 @@ class UserController extends Controller
                     $actionBtn = "<div class='row p-2'>".
                         "<form action='". route('user.destroy', $row->id)."' class='form-delete' method='POST'>".
                         "<input type='hidden' name='_token' value='".csrf_token()."'>".
-                        "<button id='delete-btn' type='button' onclick='showModal() class='btn btn-link btn-sm btn-danger btn-just-icon remove' name='delete_modal'>".
+                        "<button id='delete-btn' type='button' onclick='showModal()' class='btn btn-link btn-sm btn-danger btn-just-icon remove' name='delete_modal'>".
                         "<i class='fa fa-trash'></i>".
                         "</button>".
                         "</form>".
