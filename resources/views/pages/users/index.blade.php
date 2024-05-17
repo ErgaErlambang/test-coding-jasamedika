@@ -37,6 +37,7 @@
         </div>
     </div>
 </div>
+@include('layouts.modal')
 @endsection
 
 @push('scripts')
